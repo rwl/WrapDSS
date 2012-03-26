@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ncond.dss.wrapping</groupId>
+    <artifactId>root</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>${pkgArtifactId}</artifactId>
+  <version>${osgiVersion}</version>
+  <packaging>bundle</packaging>
+  <name>eDSS Wrapping - ${pkgArtifactId}</name>
+  <description>Wraps the Maven artifact: ${pkgArtifactId}-${pkgVersion}</description>
+
+  <properties>
+    <pkgArtifactId>cs-solve</pkgArtifactId>
+    <pkgVersion>0.0.1-SNAPSHOT</pkgVersion>
+    <osgiVersion>${pkgVersion}.001</osgiVersion>
+    <pkgVendor>Richard Lincoln</pkgVendor>
+    <pkgDocUrl>http://www.ncond.com/</pkgDocUrl>
+    <pkgLicense>http://www.gnu.org/licenses/lgpl-2.1.txt</pkgLicense>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.ncond.dss</groupId>
+      <artifactId>${pkgArtifactId}</artifactId>
+      <version>${pkgVersion}</version>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+    <plugin>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>maven-bundle-plugin</artifactId>
+      <version>2.3.7</version>
+      <extensions>true</extensions>
+      <configuration>
+        <instructions>
+          <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+          <Export-Package>net.sourceforge.klusolve.*;version=${project.version}</Export-Package>
+          <Bundle-Vendor>${pkgVendor} (OSGi bundle wrapper)</Bundle-Vendor>
+          <Bundle-DocURL>${pkgDocUrl}</Bundle-DocURL>
+          <Bundle-License>${pkgLicense}</Bundle-License>
+        </instructions>
+      </configuration>
+    </plugin>
+    </plugins>
+  </build>
+</project>

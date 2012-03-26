@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ncond.dss.wrapping</groupId>
+    <artifactId>root</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>${pkgArtifactId}</artifactId>
+  <version>${osgiVersion}</version>
+  <packaging>bundle</packaging>
+  <name>eDSS Wrapping - ${pkgArtifactId}</name>
+  <description>Wraps the Maven artifact: ${pkgArtifactId}-${pkgVersion}</description>
+
+  <properties>
+    <pkgArtifactId>commons-math</pkgArtifactId>
+    <pkgVersion>2.1</pkgVersion>
+    <osgiVersion>${pkgVersion}.001</osgiVersion>
+    <pkgVendor>Commons Math</pkgVendor>
+    <pkgDocUrl>http://commons.apache.org/math/</pkgDocUrl>
+    <pkgLicense>http://www.apache.org/licenses/LICENSE-2.0.html</pkgLicense>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>${pkgArtifactId}</artifactId>
+      <version>${pkgVersion}</version>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+</project>
